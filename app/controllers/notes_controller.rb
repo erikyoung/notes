@@ -1,6 +1,8 @@
 class NotesController < ApplicationController
 
 	def index 
+		notes = Note.order(id: :asc)
+		render json: notes
 	end
 
 	def create
@@ -15,7 +17,7 @@ class NotesController < ApplicationController
 	private
 
 	def note_params
-		params.require(:note).permit(:content, :title)
+		params.require(:note).permit(:title, :content)
 	end
 
 	def render_errors(note)
