@@ -5,6 +5,11 @@ class NotesController < ApplicationController
 		render json: notes
 	end
 
+	def show
+		note = Note.find(params[:id])
+		render json: note
+	end
+
 	def create
 		note = Note.create(note_params)
 		if note.valid?
