@@ -96,10 +96,10 @@ end
   end
 end
 
-describe "notese#destroy action" do
+describe "notes#destroy action" do
   before do
     @note = FactoryGirl.create(:note)
-    delete :destroy, params: { id: note.id }
+    delete :destroy, params: { id: @note.id }
   end
 
 
@@ -111,6 +111,7 @@ describe "notese#destroy action" do
   it "should return no_content status" do
     expect(response).to have_http_status(:no_content)
   end
+end
 end
 
 
